@@ -1,0 +1,13 @@
+:root {
+    --MainColor: #4553AD;
+    --MainWhite: #fff;
+    --MainBlack: #333;
+    --MainTransform: transform;
+    --FontMainColor: #333;
+    --FontSubColor: #555;
+    --SubGrandTitle: 40px;
+    --SubMiddleTitle: 20px;
+    --SubSubTitle: 40px;
+    --SubContentsTitle: 32px;
+    --SubContentsTitle: 20px;
+}

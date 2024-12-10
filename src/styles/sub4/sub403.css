@@ -1,0 +1,11 @@
+body {
+    padding-top: 80px;
+}
+
+.sub403__container__box {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    background-color: #ddd;
+    padding: 120px 0;
+}
