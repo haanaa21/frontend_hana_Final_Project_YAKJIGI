@@ -1,22 +1,22 @@
 import React from 'react';
-import '../../styles/sub3/sub301.css';
+import styles from '../../styles/sub3/sub301.module.css';
 
 function Sub301(props) {
     return (
         <>
-            <div className='sub_container1'>
-                    <h2 className="great_title">약국 찾아보기</h2>
-                    <p className="subheading_title">
+            <div className={styles.sub_container1}>
+                    <h2 className={styles.great_title}>약국 찾아보기</h2>
+                    <p className={styles.subheading_title}>
                     약국명 혹은 상세주소를 검색하시면, 약국의 주소를 알려드립니다
                     </p>
                     </div>
             {/* 검색바 */}
-            <ul className="sub_search_container">
-                <li className="sub_search">
-                    <div className='cearch_box'>
-                        <p className="sub_search_text">초성 검색</p>
-                        <div className="sub_search_div">
-                            <form name='sub301__form' action="/">
+            <ul className={styles.sub_search_container}>
+                <li className={styles.sub_search}>
+                    <div className={styles.cearch_box}>
+                        <p className={styles.sub_search_text}>초성 검색</p>
+                        <div className={styles.sub_search_div}>
+                            <form name={styles.sub301__form} action="/">
                             <input
                                 type="text"
                                 name=""
@@ -29,17 +29,17 @@ function Sub301(props) {
                     </div>
                 </li>
             </ul>
-            <div className="sub_container2">
-            <ul className="contents_box">
-                <li className="textcenter">
+            <div className={styles.sub_container2}>
+            <ul className={styles.contents_box}>
+                <li className={styles.textcenter}>
         {/* 검색바 */}
             <div>
-                <ul className="result_bar">
+                <ul className={styles.result_bar}>
                     <li>총 <span>236</span>개의 결과가 있습니다.</li>
                 </ul>
             </div>
-            <div className="table">
-        <table className="status_table">
+            <div className={styles.table}>
+        <table className={styles.status_table}>
             <thead>
             <tr>
                 <th>약국명</th>
@@ -103,10 +103,10 @@ function Sub301(props) {
         </div>
         {/* paging 영역 start */}
         <div>
-        <ul className="paging_num_ul">
+        <ul className={styles.paging_num_ul}>
             <li className="material-icons prev">keyboard_double_arrow_left</li>
             <li className="material-icons prev">chevron_left</li>
-            <li className="active">1</li>
+            <li className={styles.active}>1</li>
             <li>2</li>
             <li>3</li>
             <li>4</li>

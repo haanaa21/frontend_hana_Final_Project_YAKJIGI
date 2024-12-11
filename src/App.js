@@ -8,6 +8,9 @@ import Sub101 from './pages/Sub1/Sub101';
 import Sub301 from './pages/Sub3/Sub301';
 import Sub403 from './pages/Sub4/Sub403';
 import Container from './pages/Main/Container';
+import 'swiper/css'; // node_modules 불러오는 swipercss
+import 'swiper/css/pagination'; // node_modules 불러오는 pagination
+import 'swiper/css/navigation'; // node_modules 불러오는 navigation
 
 import AOS from 'aos';
 import '../node_modules/aos/dist/aos.css';
