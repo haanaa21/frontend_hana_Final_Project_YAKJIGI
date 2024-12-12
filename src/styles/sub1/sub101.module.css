@@ -1,13 +1,9 @@
-body {
-    padding-top: 80px;
-}
-
 .sub101__container {
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
     background-color: #ddd;
-    padding: 120px 0;
+    padding: 200px 0;
 }
 
 .sub101__ttitle {
