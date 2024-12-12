@@ -37,113 +37,146 @@ function Sub403(props) {
                  }} // 반응형
                 >
                     <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
+                        <img src="./images/sub4-3/cat02.jpg" 
                         alt="이미지" 
                         className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
+                            <div className={styles.profile__text__box}>
+                                <ul>
+                                    <li>
+                                        <p>고영희</p>
+                                        <em>약사</em>
+                                    </li>
+                                    <li>
+                                        <div className={styles.sub403__profile__logo__box}>
+                                            <img src="./images/sub4-3/logo.png"
+                                            alt="로고"
+                                            className={styles.sub403__profile__logo} />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
+                        <img src="./images/sub4-3/cat02.jpg" 
                         alt="이미지" 
                         className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
+                            <div className={styles.profile__text__box}>
+                                <ul>
+                                    <li>
+                                        <p>고영희</p>
+                                        <em>약사</em>
+                                    </li>
+                                    <li>
+                                        <div className={styles.sub403__profile__logo__box}>
+                                            <img src="./images/sub4-3/logo.png"
+                                            alt="로고"
+                                            className={styles.sub403__profile__logo} />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
+                        <img src="./images/sub4-3/cat02.jpg" 
                         alt="이미지" 
                         className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
+                            <div className={styles.profile__text__box}>
+                                <ul>
+                                    <li>
+                                        <p>고영희</p>
+                                        <em>약사</em>
+                                    </li>
+                                    <li>
+                                        <div className={styles.sub403__profile__logo__box}>
+                                            <img src="./images/sub4-3/logo.png"
+                                            alt="로고"
+                                            className={styles.sub403__profile__logo} />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
+                        <img src="./images/sub4-3/cat02.jpg" 
                         alt="이미지" 
                         className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
+                            <div className={styles.profile__text__box}>
+                                <ul>
+                                    <li>
+                                        <p>고영희</p>
+                                        <em>약사</em>
+                                    </li>
+                                    <li>
+                                        <div className={styles.sub403__profile__logo__box}>
+                                            <img src="./images/sub4-3/logo.png"
+                                            alt="로고"
+                                            className={styles.sub403__profile__logo} />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
+                        <img src="./images/sub4-3/cat02.jpg" 
                         alt="이미지" 
                         className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
+                            <div className={styles.profile__text__box}>
+                                <ul>
+                                    <li>
+                                        <p>고영희</p>
+                                        <em>약사</em>
+                                    </li>
+                                    <li>
+                                        <div className={styles.sub403__profile__logo__box}>
+                                            <img src="./images/sub4-3/logo.png"
+                                            alt="로고"
+                                            className={styles.sub403__profile__logo} />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
+                        <img src="./images/sub4-3/cat02.jpg" 
                         alt="이미지" 
                         className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
+                            <div className={styles.profile__text__box}>
+                                <ul>
+                                    <li>
+                                        <p>고영희</p>
+                                        <em>약사</em>
+                                    </li>
+                                    <li>
+                                        <div className={styles.sub403__profile__logo__box}>
+                                            <img src="./images/sub4-3/logo.png"
+                                            alt="로고"
+                                            className={styles.sub403__profile__logo} />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
+                        <img src="./images/sub4-3/cat02.jpg" 
                         alt="이미지" 
                         className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
+                            <div className={styles.profile__text__box}>
+                                <ul>
+                                    <li>
+                                        <p>고영희</p>
+                                        <em>약사</em>
+                                    </li>
+                                    <li>
+                                        <div className={styles.sub403__profile__logo__box}>
+                                            <img src="./images/sub4-3/logo.png"
+                                            alt="로고"
+                                            className={styles.sub403__profile__logo} />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                     </SwiperSlide>
-                    <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
-                        alt="이미지" 
-                        className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
-                        alt="이미지" 
-                        className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
-                        alt="이미지" 
-                        className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
-                        alt="이미지" 
-                        className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className={styles.sub403__profile__box}>
-                        <img src="./images/sub4-3/cat01.png" 
-                        alt="이미지" 
-                        className={styles.sub403__profile__image} />
-                        <div className={styles.profile__text__box}>
-                        <p>이하나</p>
-                        <em>약사</em>
-                        </div>
-                    </SwiperSlide>
+
                 {/* 사용자 정의 버튼 (넘기는 버튼) */}
                 <div className={styles.prev}>
                     <div className="material-icons">arrow_back</div>
