@@ -130,39 +130,46 @@
 
 /* 테이블 CSS */
 
-.table {
-    margin-top: 12px;
-}
-
-.status_table {
+.status__table {
     border-collapse: collapse;
     width: 100%;
     border-top: 2px solid #000;
 }
 
-.status_table thead tr {
+.status__table thead {
+    position: sticky;
+    top: 0px;
+    margin: 0;
+}
+
+.table {
+    margin-top: 12px;
+    overflow: auto;
+    max-height: 280px;
+}
+
+.status__table thead tr {
     background-color: #F8F8F8;
     border-bottom: 1px solid #ddd;
 }
 
 
-.status_table thead tr th {
+.status__table thead tr th {
     height: 50px;
     vertical-align: middle;
     font-size: 16px;
     color: #333;
 }
 
-.status_table tbody tr {
-    cursor: pointer;
+.status__table tbody tr {
     border-bottom: 1px solid #ddd;
 }
 
-.status_table tbody tr:hover {
+.status__table tbody tr:hover {
     background-color: #fdfdfd;
 }
 
-.status_table tbody tr td {
+.status__table tbody tr td {
     height: 50px;
     vertical-align: middle;
     font-size: 16px;
@@ -170,16 +177,16 @@
     border-bottom: 1px solid #ddd;
 }
 
-.status_table tbody tr td:nth-child(1) {
+.status__table tbody tr td:nth-child(1) {
     width: 130px;
 }
 
-.status_table tbody tr td:nth-child(2) {
+.status__table tbody tr td:nth-child(2) {
     width: calc(100% - 600px);
     text-align: left;
 }
 
-.status_table tbody tr td:nth-child(3) {
+.status__table tbody tr td:nth-child(3) {
     width: 300px;
 }
 

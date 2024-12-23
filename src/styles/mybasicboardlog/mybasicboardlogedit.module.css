@@ -199,55 +199,77 @@
 
 .table {
     margin-top: 12px;
+    overflow: auto;
+    max-height: 280px;
 }
 
-.status_table {
+.status__table thead {
+    position: sticky;
+    top: 0px;
+    margin: 0;
+}
+
+.status__table {
     border-collapse: collapse;
     width: 100%;
     border-top: 2px solid #000;
 }
 
-.status_table thead tr {
+.status__table thead tr {
     background-color: #F8F8F8;
     border-bottom: 1px solid #ddd;
 }
 
 
-.status_table thead tr th {
+.status__table thead tr th {
     height: 50px;
     vertical-align: middle;
     font-size: 16px;
     color: #333;
 }
 
-.status_table tbody tr {
-    cursor: pointer;
+.status__table tbody tr {
     border-bottom: 1px solid #ddd;
 }
 
-.status_table tbody tr:hover {
+.status__table tbody tr:hover {
     background-color: #fdfdfd;
 }
 
-.status_table tbody tr td {
+.status__table tbody tr td {
     height: 50px;
     vertical-align: middle;
     font-size: 16px;
     color: #333;
     border-bottom: 1px solid #ddd;
+    position: relative;
 }
 
-.status_table tbody tr td:nth-child(1) {
+.status__table tbody tr td:nth-child(1) {
     width: 130px;
+    text-align: center;
 }
 
-.status_table tbody tr td:nth-child(2) {
+.status__table tbody tr td:nth-child(2) {
     width: calc(100% - 600px);
     text-align: left;
 }
 
-.status_table tbody tr td:nth-child(3) {
+.status__table tbody tr td:nth-child(3) {
     width: 300px;
+    text-align: left;
+}
+
+.status__table tbody tr td button{
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    position: absolute; /* 절대 위치 설정 */
+    top: 50%; /* 수직 중앙 정렬 */
+    right: 0; /* 오른쪽 끝으로 붙임 */
+    transform: translateY(-50%); /* 수직 중앙 정렬을 위한 조정 */
+    z-index: 10;
+    cursor: pointer;
 }
 
 /* 반응형 */

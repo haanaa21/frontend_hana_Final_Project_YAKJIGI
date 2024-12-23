@@ -19,7 +19,7 @@ function MybasicboardlogDetaile(props) {
                     <li className={styles.detaile__table__title}>복용 내용</li>
                     <li>
                         <div className={styles.table}>
-                        <table className={styles.status_table}>
+                        <table className={styles.status__table}>
                             <thead>
                                 <tr>
                                     <th>약 이름</th>
@@ -28,6 +28,26 @@ function MybasicboardlogDetaile(props) {
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>카르베딜롤정제</td>
+                                    <td>하루 1알</td>
+                                    <td>당뇨</td>
+                                </tr>
+                                <tr>
+                                    <td>카르베딜롤정제</td>
+                                    <td>하루 1알</td>
+                                    <td>당뇨</td>
+                                </tr>
+                                <tr>
+                                    <td>카르베딜롤정제</td>
+                                    <td>하루 1알</td>
+                                    <td>당뇨</td>
+                                </tr>
+                                <tr>
+                                    <td>카르베딜롤정제</td>
+                                    <td>하루 1알</td>
+                                    <td>당뇨</td>
+                                </tr>
                                 <tr>
                                     <td>카르베딜롤정제</td>
                                     <td>하루 1알</td>

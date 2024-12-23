@@ -29,7 +29,7 @@ function MybasicboardlogEdit(props) {
                     <li className={styles.edit__table__title}>복용 내용</li>
                     <li>
                         <div className={styles.table}>
-                        <table className={styles.status_table}>
+                        <table className={styles.status__table}>
                             <thead>
                                 <tr>
                                     <th>약 이름</th>
@@ -42,26 +42,49 @@ function MybasicboardlogEdit(props) {
                                     <td>카르베딜롤정제</td>
                                     <td>하루 1알</td>
                                     <td>당뇨</td>
+                                    <td><button>-</button> </td>
                                 </tr>
                                 <tr>
                                     <td>카르베딜롤정제</td>
                                     <td>하루 1알</td>
                                     <td>당뇨</td>
+                                    <td><button>-</button> </td>
                                 </tr>
                                 <tr>
                                     <td>카르베딜롤정제</td>
                                     <td>하루 1알</td>
                                     <td>당뇨</td>
+                                    <td><button>-</button> </td>
                                 </tr>
                                 <tr>
                                     <td>카르베딜롤정제</td>
                                     <td>하루 1알</td>
                                     <td>당뇨</td>
+                                    <td><button>-</button> </td>
                                 </tr>
                                 <tr>
                                     <td>카르베딜롤정제</td>
                                     <td>하루 1알</td>
                                     <td>당뇨</td>
+                                    <td><button>-</button> </td>
+                                </tr>
+                                <tr>
+                                    <td>카르베딜롤정제</td>
+                                    <td>하루 1알</td>
+                                    <td>당뇨</td>
+                                    <td><button>-</button> </td>
+                                </tr>
+                                <tr>
+                                    <td>카르베딜롤정제</td>
+                                    <td>하루 1알</td>
+                                    <td>당뇨</td>
+                                    <td><button>-</button> </td>
+                                </tr>
+                                <tr>
+                                    <td>카르베딜롤정제</td>
+                                    <td>하루 1알</td>
+                                    <td>당뇨</td>
+                                    <td><button>-</button> </td>
                                 </tr>
                             </tbody>
                         </table>
