@@ -9,6 +9,9 @@ function Header(props) {
             <Link to="/Sub101">Sub101가는 페이지</Link>
             <Link to="/Sub301">Sub301가는 페이지</Link>
             <Link to="/Sub403">Sub403가는 페이지</Link>
+            <Link to="/Mybasicboardlogwrite">Mybasicboardlogwrite가는 페이지</Link>
+            <Link to="/MybasicboardlogDetaile">MybasicboardlogDetaile가는 페이지</Link>
+            <Link to="/MybasicboardlogEdit">MybasicboardlogEdit가는 페이지</Link>
         </div>
     );
 }

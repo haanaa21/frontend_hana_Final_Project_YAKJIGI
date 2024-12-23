@@ -16,7 +16,7 @@ function Sub301(props) {
                     <div className={styles.cearch_box}>
                         <p className={styles.sub_search_text}>초성 검색</p>
                         <div className={styles.sub_search_div}>
-                            <form name={styles.sub301__form} action="/">
+                            <form className={styles.sub301__form} action="/">
                             <input
                                 type="text"
                                 name=""

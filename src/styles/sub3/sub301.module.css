@@ -275,132 +275,123 @@ ul.sub_search_container li.sub_search .sub_search_div input:focus {
 
 
 
+/* ========== 1380px 기준 ========== */
 @media screen and (max-width: 1380px) {
-    .sub_container2, .sub_container {
+    .write__container {
         width: 90%;
-    }
-
-    .cearch_box {
-        width: 90%;
-        margin: 0 auto;
-    }
-}
- /* ========== 1000px 기준 ========== */
-@media screen and (max-width: 1000px) {
-    .great_title {
-        font-size: 36px;
-        line-height: 50px;
-    }
-    .subheading_title {
-        font-size: 18px;
-        line-height: 34px;
-    }
-    .sub_search_text {
-        font-size: 18px;
-        line-height: 38px;
-        margin-left: 20px;
-    }
-    .sub301__form {
-        font-size: 16px;
-        line-height: 34px;
-    }
-    .result_bar {
-        font-size: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 50px;
-        
-    }
-}
- /* ========== 768px 기준 ========== */
-@media screen and (max-width: 768px) {
-    .sub_container2, .sub_container {
         padding: 100px 0;
     }
-    .great_title {
-        font-size: 32px;
-        line-height: 46px;
-        margin-bottom: 2px;
+    .write__date__container__box ul li:nth-child(even) input {
+        width: 400px;
     }
-    .subheading_title {
-        font-size: 18px;
-        line-height: 34px;
+    .filebox .uploadName {
+        width: 400px;
     }
-    .sub_search_text {
-        font-size: 14px;
-        line-height: 34px;
-        margin-bottom: 10px;
+    .write__modalContent__box {
+        width: 700px;
+        height: 500px;
     }
-    .sub301__form {
-        font-size: 18px;
-        line-height: 34px;
-    }
-
-    .result_bar {
-        font-size: 20px;
-        margin-bottom: 25px;
-    }
-
-    .status_table tbody tr td:nth-child(1) {
-        width: 200px;
-    }
-    
-    .status_table tbody tr td:nth-child(2) {
-        width: calc(100% - 400px);
-        text-align: left;
-    }
-    
-    .status_table tbody tr td:nth-child(3) {
-        width: 200px;
+    .write__modal__search2 input {
+        width: 500px;
     }
 }
- /* ========== 480px 기준 ========== */
-@media screen and (max-width: 480px) {
-    .sub_container2, .sub_container {
-        padding: 80px 0;
+
+/* ========== 1000px 기준 ========== */
+@media screen and (max-width: 1000px) {
+    .write__container {
+        padding: 80px 20px;
     }
-    .great_title {
-        font-size: 26px;
-        line-height: 38px;
-        margin-bottom: 0px;
+    .write__date__container__box ul li:nth-child(even) input {
+        width: 300px;
     }
-    .subheading_title {
-        font-size: 16px;
-        line-height: 34px;
+    .filebox .uploadName {
+        width: 300px;
     }
-    .sub_search_text {
+    .write__modalContent__box {
+        width: 600px;
+        height: 450px;
+    }
+    .write__modal__search2 input {
+        width: 100%;
+    }
+    .write__btn__ul li button {
+        width: 100px;
+        height: 36px;
         font-size: 14px;
-        line-height: 28px;
+    }
+}
+
+/* ========== 768px 기준 ========== */
+@media screen and (max-width: 768px) {
+    .write__container {
+        padding: 60px 15px;
+    }
+    .write__date__container__box ul {
+        flex-direction: column;
+    }
+    .write__date__container__box ul li {
+        width: 100%;
+        padding: 10px 0;
+    }
+    .write__date__container__box ul li:nth-child(odd) {
+        width: 100%;
         margin-bottom: 5px;
     }
-    .sub301__form {
-        font-size: 20px;
-        line-height: 32px;
+    .write__date__container__box ul li:nth-child(even) {
+        width: 100%;
     }
-    .result_bar {
+    .write__modalContent__box {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+    .write__modal__search2 input {
+        width: calc(100% - 130px);
+    }
+    .write__search__btn, .write__modal__search2 button {
+        width: 100px;
+        height: 36px;
+    }
+}
+
+/* ========== 480px 기준 ========== */
+@media screen and (max-width: 480px) {
+    .write__container {
+        padding: 40px 10px;
+    }
+    .write__date__container__box ul li:nth-child(even) input {
+        width: 100%;
         font-size: 14px;
-        line-height: 26px;
-        margin-bottom: 10px;
+    }
+    .filebox .uploadName {
+        width: 100%;
+        font-size: 14px;
+    }
+    .write__modalContent__box {
+        width: 100%;
+        padding: 20px;
+        height: auto;
+    }
+    .write__modal__search2 input {
+        width: calc(100% - 5px);
+    }
+    .write__search__btn, .write__modal__search2 button {
+        width: 90px;
+        height: 32px;
+        font-size: 12px;
+    }
+    .write__btn__ul li button {
+        width: 90px;
+        height: 32px;
+        font-size: 12px;
+    }
+    .write__table table thead th, .write__table table tbody td {
+        font-size: 12px;
+        padding: 5px;
     }
 
-    .status_table tbody tr td {
-        font-size: 14px;
-        line-height: 26px;
-    }
-
-    .status_table tbody tr td:nth-child(1) {
-        width: 150px;
-    }
-    
-    .status_table tbody tr td:nth-child(2) {
-        width: calc(100% - 350px);
-        text-align: left;
-    }
-    
-    .status_table tbody tr td:nth-child(3) {
-        width: 200px;
+    .write__modal__search2__input {
+        width: 345px;
     }
 }
 
