@@ -11,6 +11,7 @@ import Container from './pages/Main/Container';
 import Mybasicboardlogwrite from './pages/Mybasicboardlog/MybasicboardlogWrite';
 import MybasicboardlogDetaile from './pages/Mybasicboardlog/MybasicboardlogDetaile';
 import MybasicboardlogEdit from './pages/Mybasicboardlog/MybasicboardlogEdit';
+import Mybasicboardlog from './pages/Mybasicboardlog/Mybasicboardlog';
 import 'swiper/css'; // node_modules 불러오는 swipercss
 import 'swiper/css/pagination'; // node_modules 불러오는 pagination
 import 'swiper/css/navigation'; // node_modules 불러오는 navigation
@@ -42,6 +43,7 @@ function App() {
                <Route path='/mybasicboardlogwrite' element={<Mybasicboardlogwrite />} />
                <Route path='/mybasicboardlogdetaile' element={<MybasicboardlogDetaile />} />
                <Route path='/mybasicboardlogedit' element={<MybasicboardlogEdit />} />
+               <Route path='/mybasicboardlog' element={<Mybasicboardlog />} />
             </Routes>
             <Footer />
          </div>
