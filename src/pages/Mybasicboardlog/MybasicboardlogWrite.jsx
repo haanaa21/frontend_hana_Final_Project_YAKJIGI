@@ -3,6 +3,7 @@ import styles from '../../styles/mybasicboardlog/mybasicboardlogwrite.module.css
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from 'react-datepicker';
 import Editor from '../../components/Editor';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 function Mybasicboardlogwrite() {
@@ -10,6 +11,13 @@ function Mybasicboardlogwrite() {
     const [fileName, setFileName] = useState('');
     const [searchModalOpen, setSearchModalOpen] = useState(false);
     const modalBackground = useRef(null);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    // URL에서 날짜 추출
+    const query = new URLSearchParams(location.search);
+    const date = query.get("date");
 
     // 모달 열기/닫기 함수
     const toggleModal = () => {
@@ -165,7 +173,7 @@ function Mybasicboardlogwrite() {
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
                         dateFormat="yyyy/MM/dd"
-                        placeholderText="YYYY/MM/DD"
+                        placeholderText={date}
                         onChangeRaw={(e) => e.preventDefault()}
                         />
                         <span className="material-icons">calendar_month</span>
