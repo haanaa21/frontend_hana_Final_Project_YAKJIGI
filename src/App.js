@@ -1,4 +1,3 @@
-import 'reset-css';
 import './App.css';
 import './styles/common.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
