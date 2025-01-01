@@ -22,6 +22,8 @@ import { useEffect, useState } from 'react';
 import Sub303 from './pages/Sub3/Sub303';
 import MapTest from './pages/Sub3/MapTest';
 
+import TestComponent from './pages/Sub3/TestComponent'; // TestComponent 경로 추가
+
 function App() {
    // 이벤트 상태 관리
    const [events, setEvents] = useState([
@@ -73,17 +75,13 @@ function App() {
                <Route path="/sub301" element={<Sub301 />} />
                <Route path="/sub303" element={<Sub303 />} />
                <Route path="/sub403" element={<Sub403 />} />
-               <Route
-                  path="/mybasicboardlog"
-                  element={<Mybasicboardlog events={events} />}
-               />
-               <Route
-                  path="/mybasicboardlogwrite"
-                  element={<Mybasicboardlogwrite addEvent={addEvent} />}
-               />
+               <Route path="/mybasicboardlog" element={<Mybasicboardlog events={events} />} />
+               <Route path="/mybasicboardlogwrite" element={<Mybasicboardlogwrite addEvent={addEvent} />} />
                <Route path="/mybasicboardlogdetaile" element={<MybasicboardlogDetaile />} />
                <Route path="/mybasicboardlogedit" element={<MybasicboardlogEdit />} />
                <Route path="/MapTest" element={<MapTest />} />
+               {/* 새로 추가된 TestComponent 경로 */}
+               <Route path="/test" element={<TestComponent />} />
             </Routes>
             <Footer />
          </div>
