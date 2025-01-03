@@ -21,7 +21,7 @@ function Sub303() {
       e.preventDefault(); // 버튼 클릭 시 페이지 리로드 방지
 
       if (!window.kakao || !window.kakao.maps) {
-         console.error("Kakao Maps API not loaded");
+         console.error("카카오 맵 API가 로드되지 않음");
          return;
       }
 
@@ -63,7 +63,7 @@ function Sub303() {
             setHasSearched(true);
          }
       } catch (error) {
-         console.error("Error fetching city coordinates:", error);
+         console.error("도시 좌표를 가져오는 중 오류 발생", error);
       }
    };
 
@@ -139,6 +139,7 @@ function Sub303() {
    const handleTownChange = (e) => {
       const town = e.target.value; // 선택한 구/군 값
       setSelectedTown(town); // 상태 업데이트
+      setHasSearched(false); // 검색 결과 초기화
    };
 
    // 검색어 입력 핸들러
