@@ -26,7 +26,7 @@ function Mybasicboardlog() {
                 }));
                 setEvents(formattedEvents);
             } catch (error) {
-                console.error("Error fetching user dose data:", error);
+                console.error("데이터를 가져오는 중 오류가 발생했습니다", error);
             }
         };
 
@@ -51,7 +51,7 @@ function Mybasicboardlog() {
                 navigate(`/Mybasicboardlogwrite`, { state: { date: selectedDate, userId } });
             }
         } catch (error) {
-            console.error("Error fetching details for selected date:", error);
+            console.error("선택한 날짜에 대한 세부 정보를 가져오는 중 오류가 발생했습니다", error);
         }
     };
 
@@ -66,7 +66,7 @@ function Mybasicboardlog() {
             const data = response.data;
             navigate(`/Mybasicboardlogdetaile`, { state: { date: selectedDate, data } });
         } catch (error) {
-            console.error("Error fetching details for selected date:", error);
+            console.error("선택한 날짜에 대한 세부 정보를 가져오는 중 오류가 발생했습니다", error);
         }
     };
 
