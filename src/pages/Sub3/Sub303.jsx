@@ -14,6 +14,7 @@ function Sub303() {
    const [keyword, setKeyword] = useState(""); // 사용자가 입력한 검색어
    const [map, setMap] = useState(null); // 카카오 맵 인스턴스
    const [markers, setMarkers] = useState([]); // 지도에 표시된 마커들
+   const [hasSearched, setHasSearched] = useState(false); // 검색 버튼 클릭 여부
 
    // 지도에 마커 추가 및 갱신
    const handleSearch = async (e) => {
@@ -57,6 +58,9 @@ function Sub303() {
                });
                map.setBounds(bounds);
             }
+
+            // 검색 상태 업데이트
+            setHasSearched(true);
          }
       } catch (error) {
          console.error("Error fetching city coordinates:", error);
@@ -125,6 +129,9 @@ function Sub303() {
       const city = e.target.value; // 선택한 도시 값
       setSelectedCity(city); // 상태 업데이트
       setTowns([]); // 구/군 목록 초기화
+      setSelectedTown(""); // 선택된 구/군 초기화
+      setHasSearched(false); // 검색 결과 초기화
+      setKeyword(""); // 입력한 키워드 초기화
       if (city) fetchTowns(city); // 도시 선택 시 구/군 목록 로드
    };
 
@@ -136,6 +143,11 @@ function Sub303() {
 
    // 검색어 입력 핸들러
    const handleKeywordChange = (e) => {
+      //setCities([]); // 도시 목록 초기화
+      setSelectedCity(""); // 선택된 도시 초기화
+      setTowns([]); // 구/군 목록 초기화
+      setSelectedTown(""); // 선택된 구/군 초기화
+      setHasSearched(false); // 검색 결과 초기화
       setKeyword(e.target.value);
    };
 
@@ -183,6 +195,8 @@ function Sub303() {
                      </div>
                   </div>
                </div>
+               
+               <p>검색어 검색</p>
                <div className={commons.common_search_div}>
                   <form onSubmit={handleSearch}>
                      <input
@@ -191,9 +205,7 @@ function Sub303() {
                         value={keyword}
                         onChange={handleKeywordChange}
                      />
-                     <button type="submit" className={commons.materialIcons}>
-                        search
-                     </button>
+                     <button type="submit" className="material-icons">search</button>
                   </form>
                </div>
             </li>
@@ -201,9 +213,11 @@ function Sub303() {
 
          <div className={styles.Sub302__content_container}>
             <div className={styles.Sub302__resultField}>
-               <p>
-                  "서울특별시 강북구 우이동’에서 ‘검색어’(으)로 검색한 결과는 총 <span>0</span>건 입니다."
-               </p>
+               {hasSearched && (
+                  <p>
+                     "{selectedCity} {selectedTown ? selectedTown : ""} {keyword} (으)로 검색한 결과는 총 <span>{markers.length}</span>건 입니다."
+                  </p>
+               )}
                <div className={styles.Sub303__map} id="map" style={{ width: "100%", height: "350px" }}></div>
             </div>
          </div>

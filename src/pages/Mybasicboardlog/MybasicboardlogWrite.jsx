@@ -6,7 +6,7 @@ import Editor from '../../components/Editor';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
-function Mybasicboardlogwrite() {
+function Mybasicboardlogwrite(props) {
     const [startDate, setStartDate] = useState(null);
     const [fileName, setFileName] = useState('');
     const [searchModalOpen, setSearchModalOpen] = useState(false);
