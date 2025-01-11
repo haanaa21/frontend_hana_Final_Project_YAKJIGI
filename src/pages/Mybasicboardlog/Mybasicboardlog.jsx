@@ -16,20 +16,17 @@ function Mybasicboardlog() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                // 백엔드로 유저 ID를 포함한 요청을 보냄
                 const response = await axios.get("/api/mybasicboardlog", {
-                    params: { userId }, // 유저 ID 전달
+                    params: { userId },
                 });
-                // 데이터를 FullCalendar 이벤트 형식으로 변환
                 const formattedEvents = response.data.map((item) => ({
-                    id: item.dose_idx, // 고유 ID
-                    title: item.medi_name, // 약 이름
-                    date: item.dose_date, // 복용 날짜
+                    id: item.dose_idx,
+                    title: item.medi_name,
+                    date: item.dose_date,
                 }));
-                // 상태 업데이트
                 setEvents(formattedEvents);
             } catch (error) {
-                console.error("Error fetching user dose data:", error);
+                console.error("데이터를 가져오는 중 오류가 발생했습니다", error);
             }
         };
 
@@ -37,24 +34,39 @@ function Mybasicboardlog() {
     }, []);
 
     // 날짜 클릭 이벤트 핸들러
-    const dateClick = (info) => {
+    const dateClick = async (info) => {
         const selectedDate = info.dateStr; // 클릭한 날짜
-        navigate(`/Mybasicboardlogwrite?date=${selectedDate}`); // URL 이동
+        try {
+            const response = await axios.get(`/api/mybasicboardlog/details`, {
+                params: { date: selectedDate, userId },
+            });
+
+            const data = response.data;
+
+            if (data && data.length > 0) {
+                // 정보가 있으면 MybasicboardlogDetaile 페이지로 이동
+                navigate(`/Mybasicboardlogdetaile`, { state: { date: selectedDate, userId } });
+            } else {
+                // 정보가 없으면 Mybasicboardlogwrite 페이지로 이동
+                navigate(`/Mybasicboardlogwrite`, { state: { date: selectedDate, userId } });
+            }
+        } catch (error) {
+            console.error("선택한 날짜에 대한 세부 정보를 가져오는 중 오류가 발생했습니다", error);
+        }
     };
 
     // 약 이름 클릭 이벤트 핸들러
     const handleEventClick = async (clickInfo) => {
-        const selectedDate = clickInfo.event.startStr; // 이벤트의 날짜 정보
+        const selectedDate = clickInfo.event.startStr;
         try {
-            // 클릭한 날짜와 유저 ID로 상세 데이터 요청
             const response = await axios.get(`/api/mybasicboardlog/details`, {
-                params: { date: selectedDate, userId }, // 유저 ID와 날짜 전달
+                params: { date: selectedDate, userId },
             });
 
             const data = response.data;
             navigate(`/Mybasicboardlogdetaile`, { state: { date: selectedDate, data } });
         } catch (error) {
-            console.error("Error fetching details for selected date:", error);
+            console.error("선택한 날짜에 대한 세부 정보를 가져오는 중 오류가 발생했습니다", error);
         }
     };
 

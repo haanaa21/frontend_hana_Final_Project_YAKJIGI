@@ -14,7 +14,7 @@ function Header(props) {
             <Link to="/MybasicboardlogDetaile">MybasicboardlogDetaile가는 페이지</Link>
             <Link to="/MybasicboardlogEdit">MybasicboardlogEdit가는 페이지</Link>
             <Link to="/Mybasicboardlog">Mybasicboardlog가는 페이지</Link>
-            <Link to="/MapTest">MapTest가는 페이지</Link>
+            <Link to="/MyBasicBoardCounsel">MyBasicBoardCounsel가는 페이지</Link>
         </div>
     );
 }

@@ -1,5 +1,4 @@
 import './App.css';
-import './styles/common.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -11,6 +10,7 @@ import Mybasicboardlogwrite from './pages/Mybasicboardlog/MybasicboardlogWrite';
 import MybasicboardlogDetaile from './pages/Mybasicboardlog/MybasicboardlogDetaile';
 import MybasicboardlogEdit from './pages/Mybasicboardlog/MybasicboardlogEdit';
 import Mybasicboardlog from './pages/Mybasicboardlog/Mybasicboardlog';
+import MyBasicBoardCounsel from './pages/mybasicboardcounsel/MyBasicBoardCounsel';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -19,9 +19,6 @@ import AOS from 'aos';
 import '../node_modules/aos/dist/aos.css';
 import { useEffect, useState } from 'react';
 import Sub303 from './pages/Sub3/Sub303';
-import MapTest from './pages/Sub3/MapTest';
-
-import TestComponent from './pages/Sub3/TestComponent'; // TestComponent 경로 추가
 
 function App() {
    // 이벤트 상태 관리
@@ -78,9 +75,7 @@ function App() {
                <Route path="/mybasicboardlogwrite" element={<Mybasicboardlogwrite addEvent={addEvent} />} />
                <Route path="/mybasicboardlogdetaile" element={<MybasicboardlogDetaile />} />
                <Route path="/mybasicboardlogedit" element={<MybasicboardlogEdit />} />
-               <Route path="/MapTest" element={<MapTest />} />
-               {/* 새로 추가된 TestComponent 경로 */}
-               <Route path="/test" element={<TestComponent />} />
+               <Route path="/mybasicboardcounsel" element={<MyBasicBoardCounsel />} />
             </Routes>
             <Footer />
          </div>
