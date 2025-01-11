@@ -191,6 +191,7 @@
    border-radius: 5px;
    border: 1px solid #ddd;
    padding: 0 10px;
+   box-sizing: border-box;
 }
 
 .write__search input:focus {
@@ -220,6 +221,7 @@
    border-radius: 5px;
    border: 1px solid #ddd;
    padding: 0 10px;
+   box-sizing: border-box;
 }
 
 .write__search2 input:focus {
@@ -257,7 +259,8 @@
 .write__modalContent__box {
    background-color: #ffffff;
    width: 800px;
-   height: 600px;
+   height: auto;
+   min-height: 560px;
    padding: 30px;
    border-radius: 10px;
 }

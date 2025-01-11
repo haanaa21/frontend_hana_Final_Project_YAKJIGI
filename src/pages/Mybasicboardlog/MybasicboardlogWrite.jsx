@@ -247,7 +247,6 @@ function Mybasicboardlogwrite() {
                             value={searchKeyword} // 키워드 상태와 연결
                             onChange={(e) => setSearchKeyword(e.target.value)} // 키워드 업데이트
                             />
-                            
                             <button className={boardlog.write__search__modalbtn}
                             onClick={handleSearch}>
                             검색
