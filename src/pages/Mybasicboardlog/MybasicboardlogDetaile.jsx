@@ -29,7 +29,8 @@ function MybasicboardlogDetaile() {
             state: {
                 doseData, // 복용 데이터
                 date, // 복용 일자
-                userId // 사용자 ID
+                userId, // 사용자 ID
+                doseOther: doseData[0]?.dose_other || "기타 내용 없음", // 기타 내용 전달
             },
         });
     };

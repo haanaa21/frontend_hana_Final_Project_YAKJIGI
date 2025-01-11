@@ -1,4 +1,4 @@
-import commons from "../../styles/common.module.css";
+import '../../styles/ckeditor.css';
 import MyBasicMenu from "../../components/MyBasicMenu";
 import boardlog from "../../styles/mypage/mybasicboardlogcommon.module.css";
 import styles from "../../styles/mypage/mybasicboardlogedit.module.css";

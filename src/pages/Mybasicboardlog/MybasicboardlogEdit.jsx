@@ -1,4 +1,4 @@
-import commons from '../../styles/common.module.css';
+import '../../styles/ckeditor.css';
 import boardlog from '../../styles/mypage/mybasicboardlogcommon.module.css';
 import MyBasicMenu from '../../components/MyBasicMenu';
 import styles from '../../styles/mypage/mybasicboardlogedit.module.css';
@@ -16,6 +16,7 @@ function MybasicboardlogEdit(props) {
     const doseData = state?.doseData || [];
     const date = state?.date || null;
     const userId = state?.userId || null;
+    const doseOther = state?.doseOther || "기타 내용 없음"; // 전달된 doseOther 값 초기화
     const { mainTitle, subTitle } = useDocumentTitle();
     const [startDate, setStartDate] = useState(date); // 전달된 date를 초기값으로 설정
     const [searchModalOpen, setSearchModalOpen] = useState(false);
@@ -26,7 +27,8 @@ function MybasicboardlogEdit(props) {
     const [checkboxes, setCheckboxes] = useState([]); // 초기값 빈 배열로 설정
     const [isLoading, setIsLoading] = useState(false);
     const [inputValues, setInputValues] = useState({ dosageMethod: '', usagePurpose: '' }); // 추가
-    const [otherDetails, setOtherDetails] = useState('');
+
+    const [otherDetails, setOtherDetails] = useState(doseOther); // 상태에 초기화
 
     // 상태 초기화
     const [selectedItems, setSelectedItems] = useState(
@@ -182,30 +184,30 @@ function MybasicboardlogEdit(props) {
     // 수정 버튼 클릭 시
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (!startDate || selectedItems.length === 0) {
             alert("복용 날짜와 약물 데이터를 추가하세요.");
             return;
         }
-
+    
         try {
             const payload = {
                 user_idx: userId,
                 dose_date: startDate,
-                dose_other: otherDetails.trim() || "기타 내용 없음",
+                dose_other: otherDetails.trim() || "기타 내용 없음", // 수정된 dose_other 포함
                 medications: selectedItems.map((item) => ({
                     medi_name: item.name,
                     dose_way: item.dosageMethod,
                     dose_purpose: item.usagePurpose,
                 })),
             };
-
+    
             const response = await axios.put("/api/mybasicboardlog/edit", payload, {
                 headers: {
                     "Content-Type": "application/json",
                 },
             });
-
+    
             if (response.status === 200) {
                 alert("수정이 완료되었습니다.");
                 navigate("/mybasicboardlog");
