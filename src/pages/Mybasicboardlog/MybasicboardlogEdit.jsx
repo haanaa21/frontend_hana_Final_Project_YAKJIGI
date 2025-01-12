@@ -9,28 +9,26 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import Editor from "../../components/Editor";
 
-function MybasicboardlogEdit(props) {
+function MybasicboardlogEdit() {
     const location = useLocation();
     const navigate = useNavigate();
     const { state } = location || {};
     const doseData = state?.doseData || [];
     const date = state?.date || null;
     const userId = state?.userId || null;
-    const doseOther = state?.doseOther || "기타 내용 없음"; // 전달된 doseOther 값 초기화
+    const postNum = state?.postNum || null; // post_num 초기화
+    const doseOther = state?.doseOther || "기타 내용 없음";
     const { mainTitle, subTitle } = useDocumentTitle();
-    const [startDate, setStartDate] = useState(date); // 전달된 date를 초기값으로 설정
+    const [startDate, setStartDate] = useState(date);
     const [searchModalOpen, setSearchModalOpen] = useState(false);
     const modalBackground = useRef(null);
     const [allChecked, setAllChecked] = useState(false);
-    const [searchKeyword, setSearchKeyword] = useState(''); // 검색 키워드 상태 추가
-    const [filteredCheckboxes, setFilteredCheckboxes] = useState([]); // 필터된 체크박스 상태 추가
-    const [checkboxes, setCheckboxes] = useState([]); // 초기값 빈 배열로 설정
+    const [searchKeyword, setSearchKeyword] = useState('');
+    const [filteredCheckboxes, setFilteredCheckboxes] = useState([]);
+    const [checkboxes, setCheckboxes] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [inputValues, setInputValues] = useState({ dosageMethod: '', usagePurpose: '' }); // 추가
-
-    const [otherDetails, setOtherDetails] = useState(doseOther); // 상태에 초기화
-
-    // 상태 초기화
+    const [inputValues, setInputValues] = useState({ dosageMethod: '', usagePurpose: '' });
+    const [otherDetails, setOtherDetails] = useState(doseOther);
     const [selectedItems, setSelectedItems] = useState(
         doseData.map(item => ({
             name: item.medi_name,
@@ -40,18 +38,17 @@ function MybasicboardlogEdit(props) {
     );
 
     const resetCheckboxes = () => {
-        setCheckboxes((prev) => prev.map((checkbox) => ({ ...checkbox, checked: false })));
-        setFilteredCheckboxes([]); // 검색 결과 초기화
-        setAllChecked(false); // 전체 체크박스 초기화
+        setCheckboxes(prev => prev.map(checkbox => ({ ...checkbox, checked: false })));
+        setFilteredCheckboxes([]);
+        setAllChecked(false);
     };
 
-    // 모달 열릴 때 JSON 데이터 가져오기
     useEffect(() => {
         const fetchData = async () => {
             if (searchModalOpen) {
                 setIsLoading(true);
                 try {
-                    const response = await axios.get("/api/medi-data/all"); // API 호출
+                    const response = await axios.get("/api/medi-data/all");
                     const fetchedData = response.data;
 
                     const updatedCheckboxes = fetchedData.slice(0, 50).map((item, index) => ({
@@ -62,7 +59,7 @@ function MybasicboardlogEdit(props) {
                         productSerialNumber: item.item_seq,
                     }));
 
-                    setCheckboxes(updatedCheckboxes); // 상태 업데이트
+                    setCheckboxes(updatedCheckboxes);
                 } catch (error) {
                     console.error("JSON 데이터를 가져오는 중 오류가 발생했습니다:", error);
                 } finally {
@@ -74,7 +71,6 @@ function MybasicboardlogEdit(props) {
         fetchData();
     }, [searchModalOpen]);
 
-    // 모달 열릴 때 body 스크롤 막기
     useEffect(() => {
         document.body.style.overflow = searchModalOpen ? 'hidden' : 'unset';
         return () => {
@@ -82,81 +78,70 @@ function MybasicboardlogEdit(props) {
         };
     }, [searchModalOpen]);
 
-    // 체크박스 상태 업데이트 함수
-    const handleCheckboxChange = (id) => {
-        setCheckboxes((prev) =>
-            prev.map((checkbox) =>
+    const handleCheckboxChange = id => {
+        setCheckboxes(prev =>
+            prev.map(checkbox =>
                 checkbox.id === id ? { ...checkbox, checked: !checkbox.checked } : checkbox
             )
         );
-        setFilteredCheckboxes((prev) =>
-            prev.map((checkbox) =>
+        setFilteredCheckboxes(prev =>
+            prev.map(checkbox =>
                 checkbox.id === id ? { ...checkbox, checked: !checkbox.checked } : checkbox
             )
         );
     };
 
-    // 전체 선택/해제 함수
     const handleAllCheckboxChange = () => {
         const newCheckedState = !allChecked;
         setAllChecked(newCheckedState);
 
-        setCheckboxes((prev) =>
-            prev.map((checkbox) => ({ ...checkbox, checked: newCheckedState }))
-        );
-        setFilteredCheckboxes((prev) =>
-            prev.map((checkbox) => ({ ...checkbox, checked: newCheckedState }))
+        setCheckboxes(prev => prev.map(checkbox => ({ ...checkbox, checked: newCheckedState })));
+        setFilteredCheckboxes(prev =>
+            prev.map(checkbox => ({ ...checkbox, checked: newCheckedState }))
         );
     };
 
-    // 입력 필드 상태 업데이트
-    const handleInputChange = (e) => {
+    const handleInputChange = e => {
         const { name, value } = e.target;
-        setInputValues((prev) => ({
+        setInputValues(prev => ({
             ...prev,
             [name]: value
         }));
     };
 
-    // 항목 추가
     const handleConfirm = () => {
-        const isAnyCheckboxChecked = checkboxes.some((checkbox) => checkbox.checked);
+        const isAnyCheckboxChecked = checkboxes.some(checkbox => checkbox.checked);
         if (!isAnyCheckboxChecked || !inputValues.dosageMethod || !inputValues.usagePurpose) {
             alert('복용 방법, 사용 목적, 그리고 체크박스는 필수입니다.');
             return;
         }
 
-        const selected = checkboxes.filter((checkbox) => checkbox.checked);
-        const newItems = selected.map((item) => ({
+        const selected = checkboxes.filter(checkbox => checkbox.checked);
+        const newItems = selected.map(item => ({
             name: item.label,
             dosageMethod: inputValues.dosageMethod,
             usagePurpose: inputValues.usagePurpose,
         }));
 
-        setSelectedItems((prev) => {
+        setSelectedItems(prev => {
             const updatedItems = [...prev, ...newItems];
             return updatedItems.filter(
-                (item, index, self) => self.findIndex((i) => i.name === item.name) === index
+                (item, index, self) => self.findIndex(i => i.name === item.name) === index
             );
         });
 
-        setSearchModalOpen(false); // 모달 닫기
-        resetCheckboxes(); // 상태 초기화
+        setSearchModalOpen(false);
+        resetCheckboxes();
     };
 
-    // 항목 삭제
-    const handleRemoveItem = (index) => {
-        setSelectedItems((prev) => prev.filter((_, i) => i !== index));
+    const handleRemoveItem = index => {
+        setSelectedItems(prev => prev.filter((_, i) => i !== index));
     };
 
-    // 전체 항목 삭제
     const handleRemoveAllItems = () => {
         setSelectedItems([]);
-        resetCheckboxes(); // 상태 초기화
+        resetCheckboxes();
     };
-
-    // otherDetails가 빈 문자열일 경우 기본값 설정
-    const otherDetailsWithDefault = otherDetails.trim() === "" ? "기타 내용 없음" : otherDetails;
 
     const handleSearch = () => {
         if (searchKeyword.trim() === "") {
@@ -164,9 +149,10 @@ function MybasicboardlogEdit(props) {
             return;
         }
 
-        const filteredData = checkboxes.filter((checkbox) =>
-            checkbox.label.includes(searchKeyword) ||
-            checkbox.companyName.includes(searchKeyword)
+        const filteredData = checkboxes.filter(
+            checkbox =>
+                checkbox.label.includes(searchKeyword) ||
+                checkbox.companyName.includes(searchKeyword)
         );
 
         if (filteredData.length === 0) {
@@ -176,12 +162,11 @@ function MybasicboardlogEdit(props) {
         }
     };
 
-    const BasicBoardLogListBtn = (e) => {
+    const BasicBoardLogListBtn = e => {
         e.preventDefault();
-        navigate('/mybasicboardlog'); // 수정
+        navigate('/mybasicboardlog');
     };
 
-    // 수정 버튼 클릭 시
     const handleSubmit = async (e) => {
         e.preventDefault();
     
@@ -193,14 +178,17 @@ function MybasicboardlogEdit(props) {
         try {
             const payload = {
                 user_idx: userId,
+                post_num: postNum, // 기존 `post_num` 전달
                 dose_date: startDate,
-                dose_other: otherDetails.trim() || "기타 내용 없음", // 수정된 dose_other 포함
+                dose_other: otherDetails.trim() || "기타 내용 없음",
                 medications: selectedItems.map((item) => ({
                     medi_name: item.name,
                     dose_way: item.dosageMethod,
                     dose_purpose: item.usagePurpose,
                 })),
             };
+    
+            console.log("Payload being sent:", payload);
     
             const response = await axios.put("/api/mybasicboardlog/edit", payload, {
                 headers: {
@@ -217,6 +205,30 @@ function MybasicboardlogEdit(props) {
         } catch (error) {
             console.error("수정 중 오류 발생:", error);
             alert("수정에 실패했습니다. 다시 시도해주세요.");
+        }
+    };
+
+    const handleEventClick = async (clickInfo) => {
+        const selectedDate = clickInfo.event.startStr;
+        const postNum = clickInfo.event.extendedProps.post_num;
+    
+        console.log("Event clicked with params:", { date: selectedDate, userId, postNum });
+    
+        try {
+            const response = await axios.get(`/api/mybasicboardlog/details`, {
+                params: { date: selectedDate, userId, postNum },
+            });
+    
+            const data = response.data;
+    
+            if (data) {
+                console.log("Data received:", data);
+                navigate(`/Mybasicboardlogdetaile`, { state: { date: selectedDate, data, postNum } });
+            } else {
+                console.warn("No data returned from API.");
+            }
+        } catch (error) {
+            console.error("Failed to fetch event details:", error);
         }
     };
     

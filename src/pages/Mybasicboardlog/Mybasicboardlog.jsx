@@ -13,23 +13,28 @@ function Mybasicboardlog() {
     const userId = "1111"; // 테스트용 하드코딩된 유저 ID
 
     // 페이지 로드 시 유저 ID로 데이터 가져오기
+    const fetchUserData = async () => {
+        try {
+            const response = await axios.get("/api/mybasicboardlog", {
+                params: { userId },
+            });
+            console.log("서버 응답 데이터:", response.data); // 디버깅용 로그
+            const formattedEvents = response.data.map((item) => ({
+                id: item.dose_idx,
+                title: item.medi_name,
+                date: item.dose_date,
+                extendedProps: {
+                    post_num: item.post_num,
+                },
+            }));
+            console.log("캘린더 이벤트 데이터:", formattedEvents); // 디버깅용 로그
+            setEvents(formattedEvents);
+        } catch (error) {
+            console.error("데이터를 가져오는 중 오류가 발생했습니다", error);
+        }
+    };
+    
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get("/api/mybasicboardlog", {
-                    params: { userId },
-                });
-                const formattedEvents = response.data.map((item) => ({
-                    id: item.dose_idx,
-                    title: item.medi_name,
-                    date: item.dose_date,
-                }));
-                setEvents(formattedEvents);
-            } catch (error) {
-                console.error("데이터를 가져오는 중 오류가 발생했습니다", error);
-            }
-        };
-
         fetchUserData();
     }, []);
 
@@ -58,15 +63,25 @@ function Mybasicboardlog() {
     // 약 이름 클릭 이벤트 핸들러
     const handleEventClick = async (clickInfo) => {
         const selectedDate = clickInfo.event.startStr;
+        const postNum = clickInfo.event.extendedProps.post_num;
+    
+        console.log("Event clicked with params:", { date: selectedDate, userId, postNum });
+    
         try {
             const response = await axios.get(`/api/mybasicboardlog/details`, {
-                params: { date: selectedDate, userId },
+                params: { date: selectedDate, userId, postNum },
             });
-
+    
             const data = response.data;
-            navigate(`/Mybasicboardlogdetaile`, { state: { date: selectedDate, data } });
+    
+            if (data) {
+                console.log("Data received:", data);
+                navigate(`/Mybasicboardlogdetaile`, { state: { date: selectedDate, data, postNum } });
+            } else {
+                console.warn("No data returned from API.");
+            }
         } catch (error) {
-            console.error("선택한 날짜에 대한 세부 정보를 가져오는 중 오류가 발생했습니다", error);
+            console.error("Failed to fetch event details:", error);
         }
     };
 

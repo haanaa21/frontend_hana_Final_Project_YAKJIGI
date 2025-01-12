@@ -30,6 +30,7 @@ function MybasicboardlogDetaile() {
                 doseData, // 복용 데이터
                 date, // 복용 일자
                 userId, // 사용자 ID
+                postNum: doseData[0]?.post_num || null, // post_num 전달
                 doseOther: doseData[0]?.dose_other || "기타 내용 없음", // 기타 내용 전달
             },
         });

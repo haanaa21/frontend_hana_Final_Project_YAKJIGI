@@ -166,18 +166,8 @@ function Mybasicboardlogwrite() {
 
     // 저장하기
     const handleSave = async (e) => {
-        e.preventDefault(); // 기본 동작 방지
+        e.preventDefault();
     
-        // 요청 전 필수 데이터 검증
-        if (selectedItems.length === 0) {
-            alert("약물 정보를 추가하세요.");
-            return;
-        }
-    
-        // otherDetails가 빈 문자열일 경우 기본값 설정
-        const otherDetailsWithDefault = otherDetails.trim() === "" ? "기타 내용 없음" : otherDetails;
-    
-        // Payload 생성
         const payload = {
             user_idx: userId,
             dose_date: startDate,
@@ -189,8 +179,6 @@ function Mybasicboardlogwrite() {
             })),
         };
     
-        alert("Payload:", JSON.stringify(payload, null, 2)); // 요청 데이터 확인용 로그
-    
         try {
             const response = await axios.post("/api/receivepayload", payload, {
                 headers: { "Content-Type": "application/json" },
@@ -200,16 +188,11 @@ function Mybasicboardlogwrite() {
                 alert("데이터가 저장되었습니다.");
                 window.location.href = "/mybasicboardlog";
             } else {
-                alert(`저장에 실패했습니다. 서버 응답 상태: ${response.status}`);
+                alert(`저장 실패: 서버 응답 상태 ${response.status}`);
             }
         } catch (error) {
             console.error("저장 실패:", error);
-    
-            if (error.response) {
-                alert(`저장 실패: ${error.response.data.message || "서버 오류 발생"}`);
-            } else {
-                alert("저장에 실패했습니다. 네트워크를 확인해주세요.");
-            }
+            alert("저장에 실패했습니다. 다시 시도해주세요.");
         }
     };
 
